@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pages.Controller">
+    <MenuBar layoutX="-1.0" prefHeight="25.0" prefWidth="1300.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem fx:id="openListMenuItem" mnemonicParsing="false" text="Open File" />
+            <MenuItem fx:id="menuItemSaveList" mnemonicParsing="false" text="Save file" />
+        </Menu>
+      <Menu mnemonicParsing="false" text="Serialization">
+         <items>
+            <RadioMenuItem fx:id="textMethod" mnemonicParsing="false" selected="true" text="Text">
+               <toggleGroup>
+                       <ToggleGroup fx:id="method" />
+               </toggleGroup>
+            </RadioMenuItem>
+            <RadioMenuItem mnemonicParsing="false" text="Xml" toggleGroup="$method" fx:id="xmlMethod" />
+            <RadioMenuItem fx:id="binaryMethod" mnemonicParsing="false" text="Binary" toggleGroup="$method" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#serialize" text="Serialize" />
+            <MenuItem mnemonicParsing="false" onAction="#deserialize" text="Deserialize" />
+         </items>
+      </Menu>
+      <Menu mnemonicParsing="false" text="Plugins">
+         <items>
+            <RadioMenuItem fx:id="filesystemsZip" mnemonicParsing="false" text="FileSystems Zip" />
+            <RadioMenuItem fx:id="zipStream" mnemonicParsing="false" text="ZipStream" />
+         </items>
+      </Menu>
+    </MenuBar>
+    <TableView fx:id="tableView" layoutX="245.0" layoutY="25.0" prefHeight="725.0" prefWidth="1054.0">
+        <columns>
+            <TableColumn fx:id="firstnameColumn" prefWidth="200.0" text="Firstname" />
+            <TableColumn fx:id="lastnameColumn" prefWidth="267.9999694824219" text="Lastname" />
+            <TableColumn fx:id="typeOfWorkColumn" prefWidth="246.39996337890625" text="Type of work" />
+            <TableColumn fx:id="ageColumn" maxWidth="480.00003662109384" prefWidth="340.0" text="Age" />
+        </columns>
+    </TableView>
+    <VBox layoutX="26.0" layoutY="45.0" prefHeight="182.0" prefWidth="200.0">
+        <children>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#add" prefHeight="40.0" prefWidth="220.0" text="Add">
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="5.0" top="5.0" />
+                </VBox.margin>
+            </Button>
+            <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#edit" prefHeight="40.0" prefWidth="220.0" text="Edit">
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="5.0" top="5.0" />
+                </VBox.margin>
+            </Button>
+            <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#delete" prefHeight="40.0" prefWidth="220.0" text="Delete">
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="5.0" top="5.0" />
+                </VBox.margin>
+            </Button>
+            <ChoiceBox fx:id="choiceBox" prefHeight="25.0" prefWidth="220.0">
+                <VBox.margin>
+                    <Insets bottom="5.0" top="5.0" />
+                </VBox.margin>
+            </ChoiceBox>
+        </children>
+    </VBox>
+   <VBox layoutX="26.0" layoutY="250.0" prefWidth="200.0" spacing="7.0">
+      <children>
+         <TextField fx:id="nameField" promptText="Name" />
+         <TextField fx:id="surnameField" promptText="Surname" />
+         <TextField fx:id="ageField" promptText="Age" />
+         <ChoiceBox fx:id="addBox" prefHeight="26.0" prefWidth="210.0" />
+      </children>
+   </VBox>
+</AnchorPane>
